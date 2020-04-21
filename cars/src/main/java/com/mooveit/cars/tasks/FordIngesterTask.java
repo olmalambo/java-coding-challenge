@@ -1,6 +1,7 @@
 package com.mooveit.cars.tasks;
 
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +10,8 @@ import org.springframework.stereotype.Service;
 public class FordIngesterTask {
 
   @Scheduled(cron = "${cars.ford.ingester.runCron}")
+	 // @Scheduled(cron = "0 * * ? * *")
   public void ingestFile() {
-    log.warn("Not implemented yet.");
+    //log.warn("Not implemented yet.");
   }
 }

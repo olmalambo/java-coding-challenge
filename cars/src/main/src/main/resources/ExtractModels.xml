@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<smooks-resource-list xmlns="http://www.milyn.org/xsd/smooks-1.1.xsd"
+                      xmlns:core="http://www.milyn.org/xsd/smooks/smooks-core-1.4.xsd"
+                      xmlns:jb="http://www.milyn.org/xsd/smooks/javabean-1.4.xsd">
+    
+	<jb:bean beanId="catalogue" class="com.mooveit.cars.domain.Catalogue" createOnElement="/CATALOGUE">
+        <jb:wiring property="models" beanIdRef="models"/>
+       
+    </jb:bean>
+     <jb:bean beanId="models" class="java.util.ArrayList" createOnElement="/CATALOGUE">
+        <jb:wiring beanIdRef="model"/>
+    </jb:bean>
+    <jb:bean beanId="subModel" class="java.util.ArrayList" createOnElement="/CATALOGUE/MODEL/SUBMODELS">
+        <jb:wiring beanIdRef="submodel1"/>
+    </jb:bean>
+    <jb:bean beanId="model" class="com.mooveit.cars.domain.ModelsExtract" createOnElement="/CATALOGUE/MODEL">
+        <jb:value property="name" data="#/@name"/>
+        <jb:value property="from" data="#/@from"/>
+        <jb:value property="to" data="#/@to"/>
+        <jb:value property="type" data="#/@type"/>
+        <jb:value property="enginePower" data="#/ENGINE/@power"/>
+        <jb:value property="engineType" data="#/ENGINE/@type"/>
+        <jb:value property="WheelsSize" data="#/WHEELS/@size"/>
+        <jb:value property="Wheelstype" data="#/WHEELS/@type"/>
+        <jb:wiring property="subModesls" beanIdRef="subModel"/>
+     </jb:bean>
+     
+      <jb:bean beanId="submodel1" class="com.mooveit.cars.domain.ModelsExtract" createOnElement="/CATALOGUE/MODEL/SUBMODELS/MODEL">
+        <jb:value property="name" data="#/@name"/>
+        <jb:value property="from" data="#/@from"/>
+        <jb:value property="to" data="#/@to"/>
+        <jb:value property="type" data="#/@type"/>
+        <jb:value property="enginePower" data="#/ENGINE/@power"/>
+        <jb:value property="engineType" data="#/ENGINE/@type"/>
+        <jb:value property="WheelsSize" data="#/WHEELS/@size"/>
+        <jb:value property="Wheelstype" data="#/WHEELS/@type"/>
+       
+     </jb:bean>
+    </smooks-resource-list>
