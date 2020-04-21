@@ -49,7 +49,19 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+         <dependency>
+            <groupId>org.milyn</groupId>
+            <artifactId>milyn-smooks-all</artifactId>
+            <version>1.7.0</version>
+        </dependency>
+        
+        <dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
     </dependencies>
+     
 
     <build>
         <plugins>
